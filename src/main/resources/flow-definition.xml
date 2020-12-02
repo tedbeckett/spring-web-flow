@@ -16,11 +16,17 @@
         <property name="flowExecutor" ref="dashboardFlowExecutor"/>
     </bean>
 
+    <bean id="flowLogger" class="springwebflow.util.FlowExecutionLogger" />
+
     <flow:flow-registry id="dashboardFlowRegistry">
         <flow:flow-location id="dashboard" path="/flows/main-flow.xml"/>
     </flow:flow-registry>
 
-    <flow:flow-executor id="dashboardFlowExecutor" flow-registry="dashboardFlowRegistry"/>
+    <flow:flow-executor id="dashboardFlowExecutor" flow-registry="dashboardFlowRegistry">
+        <flow:flow-execution-listeners>
+            <flow:listener ref="flowLogger"/>
+        </flow:flow-execution-listeners>
+    </flow:flow-executor>
 
 </beans>
 		

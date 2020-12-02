@@ -14,7 +14,6 @@ http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
         <evaluate expression="loginService.validateUser(loginBean)"/>
         <transition on="true" to="showDashboard"/>
         <transition on="false" to="loginFailure"/>
-
     </action-state>
 
     <view-state id="showDashboard" view="jsp/dashboard.jsp" model="loginBean">
